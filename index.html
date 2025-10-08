@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,404 +6,36 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MASTER GRILL</title>
   <meta name="description"
-    content="MASTER GRILL — delicious food, charcoal-grilled flavors. Dark mode theme. View our menu, scan QR, or message us on WhatsApp." />
-  <link rel="icon" href="img-logo.png" />
-  <style>
-    :root {
-      --accent: #FF2C2C;       /* red highlight */
-      --bg: #ffffff;
-      /* matte black background */
-      --text: #ffffff;
-      /* main text white */
-      --muted: #d8d8d8;
-      /* light grey secondary text */
-      --card: #100C08;
-      /* cards smoky black */
-      --radius: 12px;
-    }
-
-    /* Base */
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 84px;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: url('img-background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      /* makes sure it covers the whole page */
-      color: var(--text);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(100, 100, 100, 0.5);
-      /* dark overlay */
-      z-index: -1;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    /* Container */
-    .container {
-      width: 92%;
-      max-width: 1200px;
-      margin: 0 auto
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      background: rgba(17, 17, 17, 0.95);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #222;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0
-    }
-
-    .brand {
-      display: flex;
-      gap: 12px;
-      align-items: center
-    }
-
-    .brand img {
-      width: 56px;
-      height: 56px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5)
-    }
-
-    .brand h1 {
-      font-size: 1.2rem;
-      margin: 0;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      color: #fff
-    }
-
-    nav.nav {
-      display: flex;
-      gap: 18px;
-      align-items: center
-    }
-
-    nav.nav a {
-      font-weight: 700;
-      padding: 10px 10px;
-      border-radius: 8px;
-      color: var(--text)
-    }
-
-    nav.nav a:hover {
-      background: rgba(255, 29, 29, 0.1)
-    }
-
-    /* Hero */
-    .hero {
-      min-height: 56vh;
-      display: flex;
-      align-items: center;
-      padding: 24px 0 24px;
-      background: rgba(179, 27, 27, 0.9);
-      color: white;
-    }
-
-    .hero-inner {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      width: 100%
-    }
-
-    .hero-left {
-      max-width: 720px
-    }
-
-    .hero-left h2 {
-      font-size: 3.5rem;
-      margin: 0 0 12px;
-      letter-spacing: -0.6px;
-      color: #fff
-    }
-
-    .hero-left p {
-      color: var(--muted);
-      margin-bottom: 20px;
-      font-size: 1.25rem
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap
-    }
-
-    .btn {
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: 0;
-      cursor: pointer;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 8px 30px rgba(255, 29, 29, 0.2)
-    }
-
-    .btn-outline {
-      background: white;
-      border: 2px solid var(--accent);
-      color: var(--accent)
-    }
-
-    /* Aside card (QR + contact) */
-    .aside-card {
-      margin-left: auto;
-      min-width: 300px;
-      background: var(--card);
-      border-radius: 16px;
-      padding: 20px;
-      color: var(--text);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6)
-    }
-
-    .aside-card h4 {
-      margin: 0 0 8px;
-      font-size: 1.0rem;
-      color: #fff
-    }
-
-    .qr {
-      display: flex;
-      gap: 14px;
-      align-items: center
-    }
-
-    .qr img {
-      width: 140px;
-      height: 140px;
-      border-radius: 12px;
-      background: #fff;
-      padding: 10px;
-      object-fit: contain;
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6)
-    }
-
-    .contact-mini {
-      font-size: 1rem;
-      color: var(--muted)
-    }
-
-    .mini-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px
-    }
-
-    /* Sections */
-    section {
-      padding: 64px 0
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 28px
-    }
-
-    .section-head h3 {
-      font-size: 1.6rem;
-      color: #fff;
-      margin: 0
-    }
-
-    /* Menu grid */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px
-    }
-
-    .menu-item {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #222;
-      transition: transform .18s, box-shadow .18s
-    }
-
-    .menu-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5)
-    }
-
-    .menu-item .title {
-      font-weight: 700;
-      color: #fff
-    }
-
-    .menu-item .price {
-      float: right;
-      font-weight: 800;
-      color: var(--accent)
-    }
-
-    .menu-item div {
-      color: var(--muted);
-      margin-top: 6px
-    }
-
-    /* Gallery */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block
-    }
-
-    /* Contact */
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 28px;
-      align-items: start
-    }
-
-    .contact-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #222;
-      color: #fff
-    }
-
-    .map {
-      width: 100%;
-      height: 300px;
-      border-radius: 10px;
-      border: 0
-    }
-
-    /* Footer */
-    footer {
-      padding: 28px 0;
-      text-align: center;
-      color: var(--muted);
-      background: #111
-    }
-
-    /* Responsive */
-    @media (max-width:980px) {
-      .hero-inner {
-        flex-direction: column;
-        align-items: flex-start
-      }
-
-      .aside-card {
-        width: 100%;
-        min-width: unset;
-        margin-left: 0
-      }
-
-      .contact-inner {
-        grid-template-columns: 1fr
-      }
-    }
-
-    @media (max-width:560px) {
-      .hero-left h2 {
-        font-size: 2rem
-      }
-
-      .gallery-grid img {
-        height: 140px
-      }
-    }
-
-    /* Floating WhatsApp Button */
-    #whatsappFloat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      background: #25D366;
-      /* WhatsApp green */
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    #whatsappFloat:hover {
-      transform: scale(1.1);
-    }
-
-    #whatsappFloat img {
-      width: 32px;
-      height: 32px;
-    }
-  </style>
+    content="MASTER GRILL — charcoal-grilled flavors, cozy dining. View menu, scan QR, or message us on WhatsApp." />
+  <link rel="icon" href="imglogo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
   <!-- Header -->
   <header>
     <div class="container header-inner">
       <div class="brand">
-        <img src="img-logo.png" alt="MASTER GRILL logo" />
-        <div>
+        <img src="imglogo.png" alt="MASTER GRILL logo" />
+        <div class="brand-text">
           <h1>MASTER GRILL</h1>
-          <div style="font-size:14px;color:var(--muted)">Grill · Smoke · Feast</div>
+          <p class="brand-subtitle">Grill · Smoke · Feast</p>
         </div>
       </div>
 
       <nav class="nav">
         <a href="#top">Home</a>
         <a href="#about">About Us</a>
-        <a href="#menu">Menu</a>
+
+        <div class="dropdown">
+          <a href="#menu">Menu ▾</a>
+          <div class="dropdown-content">
+            <a href="#buffet">Buffet</a>
+            <a href="#packed">Packed Food</a>
+          </div>
+        </div>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -411,214 +43,139 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" id="top" aria-label="Welcome">
-    <div class="container hero-inner">
-      <div class="hero-left">
-        <h2>Welcome to MASTER GRILL</h2>
-        <p>Charcoal-grilled flavours and cozy dining — explore our menu, scan the QR, or message us on WhatsApp.</p>
-        <div class="hero-cta">
-          <a class="btn btn-outline" href="https://drive.google.com/file/d/1ccYweRhE9x1wqlN9UJpVv8AhkAvCHKS3/view"
-            target="_blank" rel="noopener">View Menu</a>
-        </div>
-      </div>
-
-      <aside class="aside-card" aria-hidden="false">
-        <h4>What's Up!</h4>
-        <div style="font-size:14px;color:var(--muted);margin-bottom:5px">Open Daily: 4:00 PM — 11:00 PM</div>
-        <div style="font-size:14px;color:var(--muted);margin-bottom:10px">Closed on Monday</div>
-
-        <div class="qr">
-          <img id="qrMenu" src="" alt="Menu QR code" />
-          <div style="flex:1">
-            <div style="font-weight:800;margin-bottom:6px">MASTERGRILL</div>
-            <div class="contact-mini">380 & 381, Ground Floor, Perisaran SIBC 14,<br>32610 Seri Iskandar</div>
-            <div class="mini-actions">
-              <a class="btn btn-primary" href="tel:+60199999062">Contact Us</a>
-            </div>
-          </div>
-        </div>
-      </aside>
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <h1>MASTERGRILL</h1>
+      <p>GREAT FOOD IN SERI ISKANDAR</p>
+      <a class="btn-view-menu" href="https://drive.google.com/file/d/1ccYweRhE9x1wqlN9UJpVv8AhkAvCHKS3/view"
+        target="_blank">
+        View Menu
+      </a>
     </div>
   </section>
 
   <!-- About Us -->
   <section id="about" class="container">
-    <div class="section-head" style="position:relative;">
+    <div class="section-head">
       <h3>About Us</h3>
-      <!-- Red accent line -->
-      <span style="
-      display:block;
-      width:60px;
-      height:4px;
-      background:#FF2C2C;
-      margin:8px auto 0;
-      border-radius:2px;
-    "></span>
+      <div class="accent-line"></div>
     </div>
-    <div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center;">
-      <!-- Image -->
-      <div style="flex:1;min-width:280px;">
-        <img src="imgabout.jpg" alt="About MASTER GRILL"
-          style="width:100%;border-radius:12px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,0.5);">
-      </div>
-
-      <!-- Text -->
-      <div style="flex:1;min-width:280px;color:var(--muted);font-size:1.6rem;line-height:1.8;text-align:justify;">
-        MASTER GRILL is your go-to destination for authentic charcoal-grilled flavors.
-        From perfectly seared ribeye to smoky BBQ chicken, we combine quality ingredients with
-        passion and experience to create unforgettable dining experiences.
-        Join us for cozy meals, smoky aromas, and dishes that will tantalize your taste buds.
+    <div class="about-inner">
+      <img src="imgabout.jpg" alt="About MASTER GRILL">
+      <div class="about-text">
+        MASTER GRILL is your go-to destination for authentic charcoal-grilled flavors. From perfectly seared ribeye to
+        smoky BBQ chicken, we combine quality ingredients with passion and experience to create unforgettable dining
+        experiences. Join us for cozy meals, smoky aromas, and dishes that will tantalize your taste buds.
       </div>
     </div>
   </section>
 
-
   <!-- Menu -->
-  <section id="favourite" class="container">
+  <section id="menu" class="container">
     <div class="section-head">
       <h3>Customer Favourites</h3>
-      <!-- Red accent line -->
-      <span style="
-      display:block;
-      width:60px;
-      height:4px;
-      background:#FF2C2C;
-      margin:8px auto 0;
-      border-radius:2px;
-    "></span>
+      <div class="accent-line"></div>
     </div>
-    <div class="menu-grid" aria-live="polite">
+    <div class="menu-grid">
       <div class="menu-item">
-        <div class="title">Charcoal Grilled Ribeye <span class="price">RM 48</span></div>
-        <div>Juicy ribeye seared over charcoal, served with house butter.</div>
+        <div class="title">Grilled Ribeye Steak<span class="price">RM 30</span></div>
+        <div>Juicy ribeye pan seared, served with house butter.</div>
       </div>
       <div class="menu-item">
-        <div class="title">Smoky BBQ Chicken <span class="price">RM 24</span></div>
-        <div>Slow-smoked chicken basted in our signature BBQ glaze.</div>
+        <div class="title">Grilled Chicken<span class="price">RM 15</span></div>
+        <div>Slow-cooked chicken basted in our signature blackpepper sauce.</div>
       </div>
       <div class="menu-item">
-        <div class="title">Garlic Prawns <span class="price">RM 28</span></div>
-        <div>Pan-seared prawns with garlic butter and lemon.</div>
+        <div class="title">Chicken Buttermilk <span class="price">RM 12</span></div>
+        <div>Crispy chicken bites in a creamy, garlicky, spicy and rich sauce.</div>
       </div>
       <div class="menu-item">
-        <div class="title">Truffle Fries <span class="price">RM 12</span></div>
-        <div>Crispy fries finished with truffle oil and parmesan.</div>
+        <div class="title">Mac n Cheese <span class="price">RM 12</span></div>
+        <div>an iconic dish beloved by people of all ages, is a culinary masterpiece that deserves to be described with
+          the utmost eloquence and precision.</div>
       </div>
     </div>
+  </section>
+
+  <!-- Buffet Section -->
+  <section id="buffet" class="container">
+    <div class="section-head">
+      <h3>Buffet</h3>
+      <div class="accent-line"></div>
+    </div>
+    <p>Our buffet offers a variety of charcoal-grilled delights, side dishes, and desserts for a full dining experience.
+    </p>
+  </section>
+
+  <!-- Packed Food Section -->
+  <section id="packed" class="container">
+    <div class="section-head">
+      <h3>Packed Food</h3>
+      <div class="accent-line"></div>
+    </div>
+    <p>Conveniently packed meals for takeaways or deliveries, featuring your favorite MASTER GRILL dishes.</p>
   </section>
 
   <!-- Gallery -->
   <section id="gallery" class="container">
     <div class="section-head">
       <h3>Gallery</h3>
-      <!-- Red accent line -->
-      <span style="
-      display:block;
-      width:60px;
-      height:4px;
-      background:#FF2C2C;
-      margin:8px auto 0;
-      border-radius:2px;
-    "></span>
+      <div class="accent-line"></div>
     </div>
     <div class="gallery-grid">
-      <img src="img-dish-01.png" alt="Dish 1">
-      <img src="img-dish-02.jpg" alt="Dish 2">
-      <img src="img-dish-03.jpg" alt="Dish 3">
-      <img src="img-dish-04.jpg" alt="Dish 4">
+      <img src="imgdish01.png" alt="Dish 1">
+      <img src="imgdish02.jpg" alt="Dish 2">
+      <img src="imgdish03.jpg" alt="Dish 3">
+      <img src="imgdish04.jpg" alt="Dish 4">
     </div>
   </section>
 
-  <!-- Contact & Location -->
+  <!-- Contact -->
   <section id="contact" class="container">
     <div class="section-head">
       <h3>Contact & Location</h3>
-      <!-- Red accent line -->
-      <span style="
-      display:block;
-      width:60px;
-      height:4px;
-      background:#FF2C2C;
-      margin:8px auto 0;
-      border-radius:2px;
-    "></span>
+      <div class="accent-line"></div>
     </div>
     <div class="contact-inner">
       <div class="contact-card">
-        <p style="font-weight:700;margin-bottom:8px">MASTERGRILL</p>
-        <p style="color:var(--muted);margin-bottom:12px">380 & 381, Ground Floor, Persiaran SIBC 14, 32610 Seri
-          Iskandar, Perak</p>
-
-        <p style="margin:8px 0"><strong>Phone</strong><br><a href="tel:+60199999062">+6019-999 9062</a></p>
-        <p style="margin:8px 0"><strong>WhatsApp</strong><br><a href="https://wa.me/60199999062" target="_blank"
-            rel="noopener">+6019-999 9062</a></p>
-        <p style="margin:8px 0"><strong>Email</strong><br><a
-            href="mailto:mastergrillfw.cafe@gmail.com">mastergrillfw.cafe@gmail.com</a></p>
-
-        <div style="margin-top:18px">
+        <p class="contact-name">MASTERGRILL</p>
+        <p class="contact-address">380 & 381, Ground Floor, Persiaran SIBC 14, 32610 Seri Iskandar, Perak</p>
+        <p><strong>Phone</strong><br><a href="tel:+60199999062">+6019-999 9062</a></p>
+        <p><strong>WhatsApp</strong><br><a href="https://wa.me/60199999062" target="_blank">+6019-999 9062</a></p>
+        <p><strong>Email</strong><br><a href="mailto:mastergrillfw.cafe@gmail.com">mastergrillfw.cafe@gmail.com</a></p>
+        <div class="contact-actions">
           <a class="btn btn-primary" href="https://wa.me/60175525805?text=Hi%20I%27d%20like%20to%20book%20a%20table"
-            target="_blank" rel="noopener">Message on WhatsApp</a>
-          <a class="btn" href="https://drive.google.com/file/d/1ccYweRhE9x1wqlN9UJpVv8AhkAvCHKS3/view" target="_blank"
-            rel="noopener" style="margin-left:10px;border:1px solid #333;background:#222;color:#fff">Open Menu</a>
+            target="_blank">Message on WhatsApp</a>
+          <a class="btn btn-outline" href="https://drive.google.com/file/d/1ccYweRhE9x1wqlN9UJpVv8AhkAvCHKS3/view"
+            target="_blank">Open Menu</a>
         </div>
-      </div>
 
+      </div>
       <div>
         <iframe class="map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7189.9562505204785!2d100.96503291255323!3d4.353901795601926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cadfcaa6a5950f%3A0xbabd38228c3eb4c0!2sMASTERGRILL%20SIBC%20Restaurant%20%26%20Catering!5e1!3m2!1sen!2smy!4v1759866705738!5m2!1sen!2smy"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
   <!-- WhatsApp Floating Button -->
-  <a id="whatsappFloat" href="https://wa.me/60175525805?text=Hi%20I%27d%20like%20to%20order" target="_blank"
-    rel="noopener">
+  <a id="whatsappFloat" href="https://wa.me/60175525805?text=Hi%20I%27d%20like%20to%20order" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
-
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>
-          <div style="font-weight:800">MASTER GRILL</div>
-          <div style="color:var(--muted)">Follow us: @mastergrillfw</div>
-        </div>
-        <div style="color:var(--muted)">© <span id="year"></span> MASTER GRILL — All rights reserved</div>
-      </div>
+      <p>© <span id="year"></span> MASTER GRILL — All rights reserved</p>
     </div>
   </footer>
 
   <script>
-    const CONFIG = {
-      siteUrl: location.href.replace(location.hash, ''),
-      menuUrl: 'https://drive.google.com/file/d/1ccYweRhE9x1wqlN9UJpVv8AhkAvCHKS3/view',
-      whatsappNumber: '60175525805',
-      phoneNumber: '60199999062'
-    };
-
+    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function buildQrUrl(data, size = 300) {
-      const encodedData = encodeURIComponent(data);
-      return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodedData}`;
-    }
-
-    (function attachQr() {
-      const qrImage = document.getElementById('qrMenu');
-      const menuTarget = CONFIG.menuUrl || CONFIG.siteUrl;
-      qrImage.src = buildQrUrl(menuTarget, 300);
-      qrImage.addEventListener('click', () => { const a = document.createElement('a'); a.href = qrImage.src; a.download = 'mastergrill-menu-qr.png'; a.click(); });
-    })();
-
-    document.getElementById('qrSiteBtn').addEventListener('click', () => {
-      const img = buildQrUrl(CONFIG.siteUrl, 400);
-      const w = window.open('', '_blank');
-      w.document.write(`<title>Site QR</title><div style="display:flex;align-items:center;justify-content:center;height:100vh"><img src="${img}" alt="site qr"></div>`);
-    });
   </script>
+
 </body>
 
 </html>
